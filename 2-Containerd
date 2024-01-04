@@ -14,9 +14,11 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
+# Instalar apenas o Containerd e não todos os pacotes especificados na documentação do Docker:
 
+apt-get install containerd.io
 
-
+###
 
 
 
