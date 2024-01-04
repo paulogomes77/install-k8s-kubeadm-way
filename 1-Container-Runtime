@@ -1,8 +1,5 @@
 
-
-
 # Forwarding IPv4 and letting iptables see bridged traffic 
-
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
@@ -21,4 +18,17 @@ EOF
 
 # Apply sysctl params without reboot
 sudo sysctl --system
+
+###
+
+lsmod | grep br_netfilter
+lsmod | grep overlay
+
+###
+
+sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
+
+###
+
+https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 
