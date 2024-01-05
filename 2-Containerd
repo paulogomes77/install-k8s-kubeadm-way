@@ -25,11 +25,11 @@ https://docs.docker.com/engine/install/ubuntu/
 
 ###
 
-# Verificar qual o init system:
-$ ps -p 1
+
 
 # Configuring the systemd cgroup driver 
-
+## Verificar qual o init system:
+$ ps -p 1
 $ vim /etc/containerd/config.toml   # Eliminar todo o conteúdo
 
 -Copiar/Colar:
