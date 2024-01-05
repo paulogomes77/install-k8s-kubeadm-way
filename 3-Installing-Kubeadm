@@ -1,8 +1,8 @@
 
 
-#Install Kubeadm
+# Install Kubeadm
 
-##Executar nos 3 nós:
+## Executar nos 3 nós:
 
 sudo apt-get update
 # apt-transport-https may be a dummy package; if so, you can skip that package
@@ -18,3 +18,5 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 ###
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+###
+
