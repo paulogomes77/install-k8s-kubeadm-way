@@ -8,7 +8,7 @@
 - hostnames: kubemaster01, kunenode01, kubenode02.
 
 ```
-## Vamos começar...
+# Vamos começar...
 
 ## Desativar Swap
 
@@ -29,7 +29,7 @@ sudo modprobe overlay
 sudo modprobe br_netfilter
 ```
 
-## Paramenterizar o sysctl conforme requisitos do Kubernetes:
+## Parametrizar o sysctl conforme requisitos do Kubernetes:
 
 ```
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
@@ -92,6 +92,24 @@ systemctl stop ufw
 
 ```
 sudo kubeadm init --pod-network-cidr=10.10.0.0/16 --apiserver-advertise-address=<IP da VM kubemaster01>
+```
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+```
+# testar o cluster:
+kubectl get nodes
+```
+
+## Nos worker nodes, copiar e colar informação devolvida depois da criação do cluster. Algo do género:
+
+```
+sudo kubeadm join <IP da VM kubemaster01>:6443 --token if9hn9.xhxo6s89byj9rsmd \
+	--discovery-token-ca-cert-hash sha256:*************************************************************** 
 ```
 
 
