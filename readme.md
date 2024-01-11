@@ -113,6 +113,13 @@ sudo kubeadm join <IP da VM kubemaster01>:6443 --token if9hn9.xhxo6s89byj9rsmd \
 ```
 
 
+## Gerar novo token
+
+O token gerado durante a instalação expira. Então sempre que necessitarem podem gerar um novo token no master node:
+
+```
+kubeadm token create --print-join-command
+```
 
 ## Créditos
 
